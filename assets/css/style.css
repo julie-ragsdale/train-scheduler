@@ -1,14 +1,18 @@
+body {
+    color: #444 !important;
+}
+
 header,
 .jumbotron,
 .jumbotron-fluid {
     text-align: center;
     background-image: url(../images/subway-tile-bg.jpg);
     background-size: 60%;
-    color: #444;
 }
 
 .lead {
     font-size: 24px !important;
+    font-weight: bold !important;
 }
 
 .container {
@@ -20,7 +24,8 @@ header,
 }
 
 .card-body {
-    border-top: 0.25px solid rgb(212, 212, 212);
+    font-size: 18px;
+    border-top: 0.25px solid #e9e9e9;
 }
 
 #train-1 {
@@ -33,4 +38,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+    height: 50px;
+    border-top: 2px solid #e9e9e9;
+    padding: 10px;
 }
