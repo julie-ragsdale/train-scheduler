@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
     // Initialize Firebase
     var config = {
@@ -16,17 +16,33 @@ $( document ).ready(function() {
 
     // Initial values
     var trainName;
-    var runTime;
+    var destination;
+    var frequency;
+    var firstTrain;
+    var nextTrain;
+    var minAway;
 
     database.ref().on("child_added", function(snapshot) {
         trainName = snapshot.val().trainName;
-        runTime = snapshot.val().runTime;
+        destination = snapshot.val().destination;
+        firstTrain = snapshot.val().firstTrain;
+        frequency = snapshot.val().frequency;
+        nextTrain = snapshot.val().nextTrain;
+        minAway = snapshot.val().minAway;
+
+    }, function(errorObject) {
+        console.log("Error: " + errorObject.code);
     });
 
     // Capture Button Click
-    $('#add-user').on('click', function(event) {
+    $('#add-train').on('click', function(event) {
         event.preventDefault();
         
+        trainName = $('<div class="col-1">').val().trim();
+        destination = $('<div class="col-2">').val().trim();
+        frequency = $('<div class="col-3">').val().trim();
+        firstTrain;
+
     });
 
 // End document ready
