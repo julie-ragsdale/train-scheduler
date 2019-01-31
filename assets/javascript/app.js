@@ -24,25 +24,25 @@ $(document).ready(function() {
         var frequency = $('#frequency-input').val().trim();
         var firstTrain = $('#firstTrain-input').val().trim();
         
-        writeTrainData(trainName, destination, firstTrain, frequency);
+        // writeTrainData(trainName, destination, firstTrain, frequency);
 
         // Creates local temp object to hold train data
-        var newTrain = {
+        database.ref().push({
             name: trainName,
             destination: destination,
             frequency: frequency,
             firstTrain: firstTrain,
-        }
+        });
 
         // Uploads train data to the database
-        function writeTrainData(trainName, destination, firstTrain, frequency) {
-            firebase.database().ref('train-scheduler-e1c4c/' + newTrain).set({
-                trainName: trainName,
-                destination: destination,
-                frequency: frequency,
-                firstTrain: firstTrain
-            });
-        }
+        // function writeTrainData(trainName, destination, firstTrain, frequency) {
+        //     firebase.database().ref('train-scheduler-e1c4c/' + newTrain).set({
+        //         trainName: trainName,
+        //         destination: destination,
+        //         frequency: frequency,
+        //         firstTrain: firstTrain
+        //     });
+        // }
         console.log(newTrain.name);
         console.log(newTrain.destination);
         console.log(newTrain.frequency);
@@ -61,24 +61,45 @@ $(document).ready(function() {
     database.ref().on('child_added', function(childSnapshot) {
         console.log(childSnapshot.val());
 
+        // Assign Firebase variables to snapshots
         var trainName = childSnapshot.val().trainName;
         var destination = childSnapshot.val().destination;
         var firstTrain = childSnapshot.val().firstTrain;
-        var frequency = childSnapshot.val().frequency;
+        var firebaseFrequency = childSnapshot.val().frequency;
         var nextTrain = childSnapshot.val().nextTrain;
         var minAway = childSnapshot.val().minAway;
 
+        var diffTime = moment().diff(moment, 'minutes');
+        var timeRemainder = moment().diff(moment, 'minutes') % firebaseFrequency;
+        var minutes = firebaseFrequency - timeRemainder;
+
         // Train info
-        console.log(trainName);
-        console.log(destination);
-        console.log(firstTrain);
-        console.log(frequency);
+        console.log(minutes);
         console.log(nextTrain);
-        console.log(minAway);
+        console.log(moment().format('HH:mm'));
+        console.log(nextTrain);
+        console.log(moment().format('X'));
+
+        // console.log(destination);
+        // console.log(firstTrain);
+        // console.log(frequency);
+        // console.log(minAway);
         
 // ---------------------------------------------
         // Moment js
+        var currentTime = moment();
+        console.log(currentTime);
 
+        // Use Frequency and time of first train to determine the train's next arrival and how many minutes away it is
+        // Will likely need to parse input from HH:mm to minutes for the calculations, then convert back to HH:mm
+
+        // Next Arrival
+        // First train + Frequency = Next arrival
+
+        // Minutes Away
+        // Current time + Frequency - Next arrival? = Minutes away
+
+        // Maybe do a for loop to go through each 
 
 // ---------------------------------------------
 
@@ -87,15 +108,13 @@ $(document).ready(function() {
             $('<td>').text(trainName),
             $('<td>').text(destination),
             $('<td>').text(frequency),
-            $('<td>').text(firstTrain),
             $('<td>').text(nextTrain),
             $('<td>').text(minAway)
         );
             
         // Appends new row to table
-        $('#train-table').append(newRow);
+        $('#train-table > tbody').append(newRow);
 
-        // TODO:where should this go?
         }, function(errorObject) {
             console.log('Error: ' + errorObject.code);
     });
@@ -111,3 +130,6 @@ $(document).ready(function() {
 
 // End document ready
 });
+
+// Fun extras
+// Make minutes away turn red when <5 min away; maybe make it flash when 5 seconds left
