@@ -28,41 +28,48 @@
                     <div class="card-header">
                         Current Train Schedule
                     </div>
-                    <div class="card-body row" id="train-info">
-                        <div class="col">Train Name</div>
-                        <div class="col">Destination</div>
-                        <div class="col">Frequency (min)</div>
-                        <div class="col">Next Arrival</div>
-                        <div class="col">Minutes Away</div>
-                    </div>
-                    <div class="card-body row" id="train-1">
-                        <div class="col col-1">The Darjeeling Limited</div>
-                        <div class="col col-2">Jodhpur</div>
-                        <div class="col col-3">13</div>
-                        <div class="col col-4"></div>
-                        <div class="col col-5"></div>
-                    </div>
-                    <div class="card-body row" id="train-2">
-                        <div class="col col-1">The Flying Scotsman</div>
-                        <div class="col col-2">Edinburgh</div>
-                        <div class="col col-3">60</div>
-                        <div class="col col-4"></div>
-                        <div class="col col-5"></div>    
-                    </div>
-                    <div class="card-body row" id="train-3">
-                        <div class="col col-1">Pineapple Express</div>
-                        <div class="col col-2">Calabasas</div>
-                        <div class="col col-3">42</div>
-                        <div class="col col-4"></div>
-                        <div class="col col-5"></div>    
-                    </div>
-                    <div class="card-body row" id="train-4">
-                        <div class="col col-1">Train in Vain</div>
-                        <div class="col col-2">London</div>
-                        <div class="col col-3">30</div>
-                        <div class="col col-4"></div>
-                        <div class="col col-5"></div>    
-                    </div>
+
+                    <table id="train-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Darjeeling Limited</td>
+                                <td>Jodhpur</td>
+                                <td>13</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Flying Scotsman</td>
+                                <td>Edinburgh</td>
+                                <td>90</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Pineapple Express</td>
+                                <td>Calabasas</td>
+                                <td>42</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Train in Vain</td>
+                                <td>London</td>
+                                <td>20</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -75,19 +82,19 @@
                     <form>
                         <div class="form-row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Train Name" id="trainName">
+                                <input type="text" class="form-control" placeholder="Train Name" id="trainName-input">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Destination" id="destination">
+                                <input type="text" class="form-control" placeholder="Destination" id="destination-input">
                             </div>
                         </div>
                         <br>
                         <div class="form-row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="First Train Time (HH:mm - military time)" id="firstTrain">
+                                <input type="text" class="form-control" placeholder="First Train Time (HH:mm - military time)" id="firstTrain-input">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Frequency (min)" id="frequency">
+                                <input type="text" class="form-control" placeholder="Frequency (min)" id="frequency-input">
                             </div>
                         </div>
                         <br>
