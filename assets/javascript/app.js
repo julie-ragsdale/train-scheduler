@@ -21,7 +21,14 @@ $(document).ready(function() {
     var firstTrain;
     var nextTrain;
     var minAway;
-
+    
+    function writeTrainData(trainName, destination, firstTrain, frequency) {
+        firebase.database().ref('train-scheduler-e1c4c/' + trainName).set({
+          destination: destination,
+          frequency: frequency,
+          firstTrain: firstTrain
+        });
+    }
     database.ref().on("child_added", function(snapshot) {
         trainName = snapshot.val().trainName;
         destination = snapshot.val().destination;
@@ -34,15 +41,20 @@ $(document).ready(function() {
         console.log("Error: " + errorObject.code);
     });
 
-    // Capture Button Click
+    // Capture button click
     $('#add-train').on('click', function(event) {
         event.preventDefault();
         
-        trainName = $('<div class="col-1">').val().trim();
-        destination = $('<div class="col-2">').val().trim();
-        frequency = $('<div class="col-3">').val().trim();
-        firstTrain;
-
+        // This is where the code is messing up with jQuery 
+        // Not grabbing the right info, so it isnt even hitting firebase
+        var trainName = $('<div class="col-1">').val().trim();
+        var destination = $('<div class="col-2">').val().trim();
+        var frequency = $('<div class="col-3">').val().trim();
+        var firstTrain = '1';
+        var nextTrain = 'a';
+        var minAway = '6';
+        
+        writeTrainData(trainName, destination, firstTrain, frequency);
     });
 
 // End document ready
