@@ -10,12 +10,22 @@ $(document).ready(function() {
     messagingSenderId: '715656521055'
     };
     firebase.initializeApp(config);
-
+    
     // References the database
     var database = firebase.database();
     
-    // Capture button click
-    $('#add-train').on('click', function(event) {
+    // CANCEL: Capture button click
+    $('#button-cancel').on('click', function(event) {
+        event.preventDefault();
+        // Clears form
+        $('#trainName-input').val('');
+        $('#destination-input').val('');
+        $('#frequency-input').val('');
+        $('#firstTrain-input').val('');
+    });
+
+    // SUBMIT: Capture button click
+    $('#button-submit').on('click', function(event) {
         event.preventDefault();
         
         // Grabs user input
@@ -23,32 +33,25 @@ $(document).ready(function() {
         var destination = $('#destination-input').val().trim();
         var frequency = $('#frequency-input').val().trim();
         var firstTrain = $('#firstTrain-input').val().trim();
-        
-        // writeTrainData(trainName, destination, firstTrain, frequency);
+        console.log('User input from form:')
+        console.log(newTrain.trainName);
+        console.log(newTrain.destination);
+        console.log(newTrain.frequency);
+        console.log(newTrain.firstTrain);
+        console.log('-------------------------')
 
-        // Creates local temp object to hold train data
+        // Creates train object
         database.ref().push({
             name: trainName,
             destination: destination,
             frequency: frequency,
             firstTrain: firstTrain,
         });
-
-        // Uploads train data to the database
-        // function writeTrainData(trainName, destination, firstTrain, frequency) {
-        //     firebase.database().ref('train-scheduler-e1c4c/' + newTrain).set({
-        //         trainName: trainName,
-        //         destination: destination,
-        //         frequency: frequency,
-        //         firstTrain: firstTrain
-        //     });
-        // }
-        console.log(newTrain.name);
+        console.log(newTrain.trainName);
         console.log(newTrain.destination);
         console.log(newTrain.frequency);
         console.log(newTrain.firstTrain);
-
-        alert('train successfully added');
+        console.log('-------------------------')
 
         // Clears form
         $('#trainName-input').val('');
@@ -56,7 +59,7 @@ $(document).ready(function() {
         $('#frequency-input').val('');
         $('#firstName-input').val('');
     });
-
+    
     // Creates Firebase event for adding new train to database and adding new row to html
     database.ref().on('child_added', function(childSnapshot) {
         console.log(childSnapshot.val());
@@ -68,7 +71,7 @@ $(document).ready(function() {
         var firebaseFrequency = childSnapshot.val().frequency;
         var nextTrain = childSnapshot.val().nextTrain;
         var minAway = childSnapshot.val().minAway;
-
+        
         var diffTime = moment().diff(moment, 'minutes');
         var timeRemainder = moment().diff(moment, 'minutes') % firebaseFrequency;
         var minutes = firebaseFrequency - timeRemainder;
@@ -79,11 +82,12 @@ $(document).ready(function() {
         console.log(moment().format('HH:mm'));
         console.log(nextTrain);
         console.log(moment().format('X'));
-
+        
         // console.log(destination);
         // console.log(firstTrain);
         // console.log(frequency);
         // console.log(minAway);
+    
         
 // ---------------------------------------------
         // Moment js

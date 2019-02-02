@@ -1,49 +1,10 @@
 body {
-    color: #444 !important;
-}
-
-header,
-.jumbotron,
-.jumbotron-fluid {
-    text-align: center;
-    background-image: url(../images/subway-tile-bg.jpg);
-    background-size: 60%;
-}
-
-.lead {
-    font-size: 24px !important;
-    font-weight: bold !important;
-}
-
-.container {
-    margin-top: 50px;
-}
-
-#train-info {
-    font-weight: bold;
-}
-
-.card-body {
-    font-size: 18px;
-    border-top: 0.25px solid #e9e9e9;
-}
-
-.col {
-    width: 20%;
-    display: flex;
-}
-
-#train-1 {
-    border-top: none;
+    color: #363636;
 }
 
 footer {
-    text-align: center;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 50px;
-    border-top: 2px solid #e9e9e9;
-    padding: 10px;
 }
