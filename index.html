@@ -15,10 +15,10 @@
             <div class="hero-body">
                 <div class="container">
                 <h1 class="title has-text-centered is-size-1">
-                Train Scheduler
+                Let's Chooch
                 </h1>
                 <p class="subtitle has-text-centered is-size-4">
-                Let's chooch
+                A Realtime Train Schedule
                 </p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <p class="is-size-3">
                 Current Train Schedule
                 </p>
-                <table class="table table is-striped is-fullwidth">
+                <table id="train_table" class="table table is-striped is-fullwidth">
                     <thead>
                         <tr>
                             <th>Train Name</th>
@@ -41,14 +41,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="name_table">Darjeeling Limited</td>
-                            <td class="destination_table">Jodhpur</td>
-                            <td class="frequency_table">15</td>
-                            <td class="next-arrival_table"></td>
-                            <td class="min-away_table"></td>
+                        <tr class="train_row">
+                            <td class="table_train-name"></td>
+                            <td class="table_train-destination"></td>
+                            <td class="table_train-frequency"></td>
+                            <td class="table_next-arrival"></td>
+                            <td class="table_min-away"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td class="name_table">Pineapple Express</td>
                             <td class="destination_table">Calabasas</td>
                             <td class="frequency_table">42</td>
@@ -61,7 +61,7 @@
                             <td class="frequency_table">60</td>
                             <td class="next-arrival_table"></td>
                             <td class="min-away_table"></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -116,8 +116,9 @@
         </footer>
 
         <!-- Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
 
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
