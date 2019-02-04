@@ -1,3 +1,7 @@
+body {
+    color: #444 !important;
+}
+
 table {
     padding: 25px;
 }
@@ -6,6 +10,7 @@ form {
     background-color: #f5f5f5;
     padding: 25px;
     margin: 10px 0;
+    border-radius: 15px;
 }
 
 footer {
