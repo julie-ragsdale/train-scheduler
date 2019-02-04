@@ -2,6 +2,10 @@ body {
     color: #444 !important;
 }
 
+.hero {
+    box-shadow: 1px 1px 5px #dadada;
+}
+
 table {
     padding: 25px;
 }
@@ -11,6 +15,8 @@ form {
     padding: 25px;
     margin: 10px 0;
     border-radius: 15px;
+    box-shadow: 1px 1px 5px #dadada;
+
 }
 
 footer {
