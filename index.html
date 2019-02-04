@@ -30,14 +30,14 @@
                 <p class="is-size-3">
                 Current Train Schedule
                 </p>
-                <table id="train_table" class="table table is-striped is-fullwidth">
+                <table id="train_table" class="table table is-striped is-hoverable is-fullwidth">
                     <thead>
                         <tr>
                             <th>Train Name</th>
                             <th>Destination</th>
                             <th>Frequency (min)</th>
                             <th>Next Arrival</th>
-                            <th>Minutes Away</th>
+                            <th>Wait (min)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,41 +55,40 @@
 
         <!-- Add Train -->
         <section class="section add-train">
-            <div class="container">
-                <p class="is-size-3">
-                Add Train
-                </p> 
+            <div class="container card">
                 <form>
+                    <p class="card-header is-size-3">
+                    Add Train
+                    </p> 
                     <div class="field">
                         <div class="control">
-                            <input id="trainName-input" class="input is-medium" type="text" placeholder="Train Name">
+                            <input id="trainName-input" class="input" type="text" placeholder="Train Name">
                         </div>
                     </div>
                     <div class="field">
                         <div class="control">
-                            <input id="destination-input" class="input is-medium" type="text" placeholder="Destination">
+                            <input id="destination-input" class="input" type="text" placeholder="Destination">
                         </div>
                     </div>
                     <div class="field">
                         <div class="control">
-                            <input id="firstTrain-input" class="input is-medium" type="text" placeholder="First Train Time (HH:mm - military time)">
+                            <input id="firstTrain-input" class="input" type="text" placeholder="First Train Time (HH:mm - military time)">
                         </div>
                     </div>
                     <div class="field">
                         <div class="control">
-                            <input  id="frequency-input" class="input is-medium" type="text" placeholder="Frequency (min)">
+                            <input  id="frequency-input" class="input" type="text" placeholder="Frequency (min)">
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button id="button-submit" class="button is-link is-rounded">Submit</button>
+                        </div>
+                        <div class="control">
+                            <button id="button-cancel" class="button is-text">Cancel</button>
                         </div>
                     </div>
                 </form>
-                <br>
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button id="button-submit" class="button is-link">Submit</button>
-                    </div>
-                    <div class="control">
-                        <button id="button-cancel" class="button is-text">Cancel</button>
-                    </div>
-                </div>
             </div>
         </section>
 
