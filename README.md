@@ -1,6 +1,6 @@
 # train-scheduler
 
-Link to site: https://leaf-junkie.github.io/train-scheduler/
+Link to site: https://julie-ragsdale.github.io/train-scheduler/
 
 This web app uses Firebase to display realtime data about fictional trains.
 
